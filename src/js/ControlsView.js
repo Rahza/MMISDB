@@ -34,7 +34,11 @@ DataManagement.ControlsView = (function() {
         },
         
         _onSelectUser = function(event) { 
+            $tasks.hide();
             $task_select.children("div").hide();
+            $user_select.find(".select").removeClass("selected");
+            $task_select.find(".select").removeClass("selected");
+            $("#" + event.target.id).addClass("selected");
             $task_select.show();
             
             switch (event.target.id) {
@@ -57,6 +61,8 @@ DataManagement.ControlsView = (function() {
         
         _onSelectTask = function(event) {
             $tasks.children("div").hide();
+            $task_select.find(".select").removeClass("selected");
+            $("#" + event.target.id).addClass("selected");
             $tasks.show();
             
             var target = event.target.id.split('-')[3] + "-" + event.target.id.split('-')[4];

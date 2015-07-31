@@ -3,6 +3,7 @@
     font-size: 2rem;
     padding: 20px;
     background-color: #ccc;
+    cursor: pointer;
     
     transition: background-color .2s;
     -moz-transition: background-color .2s;
@@ -11,4 +12,12 @@
 
 .select:hover {
     background-color: #aaa;
+}
+
+.selected {
+    background-color: #aaf;
+}
+
+.selected:hover {
+    background-color: #99f;
 }

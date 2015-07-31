@@ -40,6 +40,7 @@
                         Auftrag anlegen
                     </div>
                     <div id="task-select-manager-change-task" class="col s6 select">
+                        <!-- eigentlich nicht in den Anforderungen !-->
                         Auftrag bearbeiten
                     </div>
                     <div id="task-select-manager-add-driver" class="col s6 select">
@@ -73,7 +74,33 @@
             </div>
             
             <div id="add-driver">
-                Manager fügt einen neuen Fahrer hinzu
+                <h5>Neuen Fahrer hinzufügen</h5>
+                <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first-name" type="text" length="24" class="validate">
+                            <label for="first-name">Vorname</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last-name" type="text" length="24" class="validate">
+                            <label for="last-name">Nachname</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                    <div class="col s12 center-align">
+                        <a class="waves-effect waves-light btn-large" id="submit">Submit</a>
+                    </div>
+                </form>
+              </div>
             </div>
             
             <div id="change-driver">
@@ -87,15 +114,22 @@
             <div id="finish-task">
                 Fahrer markiert einen Auftrag als erledigt
             </div>
-        </div>        
+        </div>
+        
+        <div id="db_result">
+            blabla
+        </div>
     </div>
     
     <script src="src/js/DataManagement.js"></script>
     <script src="src/js/MainController.js"></script>
+    <script src="src/js/db/DBController.js"></script>
     <script src="src/js/ControlsView.js"></script>
+    <script src="src/js/tasks/AddDriver.js"></script>
     
     <script>
         $(document).ready(function() {
+            $('select').material_select();
             DataManagement.init();
         });
         
