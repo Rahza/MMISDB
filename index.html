@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Datenverwaltung Kurierdienst</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">    
+    
+    <script src="libs/jquery-2.1.3.min.js"></script>
+    <script src="libs/jquery-ui.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div id="user-select">
+            <h4>Bitte wählen Sie Ihre Rolle aus</h4>
+            <div class="row">
+                <div id="select-manager" class="col s6 select">
+                    Manager
+                </div>
+                <div id="select-driver" class="col s6 select">
+                    Fahrer
+                </div>
+            </div>
+        </div>
+        
+        <div id="task-select">
+            <h4>Bitte wählen Sie die auszuführende Aufgabe aus</h4>
+            <div id="tasks-manager">
+                <div class="row">
+                    <div id="task-select-manager-create-task" class="col s6 select">
+                        Auftrag anlegen
+                    </div>
+                    <div id="task-select-manager-change-task" class="col s6 select">
+                        Auftrag bearbeiten
+                    </div>
+                    <div id="task-select-manager-add-driver" class="col s6 select">
+                        Fahrer hinzufügen
+                    </div>
+                    <div id="task-select-manager-change-driver" class="col s6 select">
+                        Fahrer bearbeiten
+                    </div>
+                </div>   
+            </div>
+            <div id="tasks-driver">
+                <div class="row">
+                    <div id="task-select-driver-get-task" class="col s6 select">
+                        Nächsten Auftrag abrufen
+                    </div>
+                    <div id="task-select-driver-finish-task" class="col s6 select">
+                        Auftrag als erledigt markieren
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="task">
+            <h4>Aufgabe durchführen</h4>
+            <div id="create-task">
+                Manager erstellt einen neuen Task
+            </div>
+            
+            <div id="change-task">
+                Manager ändert einen vorhandenen Task
+            </div>
+            
+            <div id="add-driver">
+                Manager fügt einen neuen Fahrer hinzu
+            </div>
+            
+            <div id="change-driver">
+                Manager ändert einen schon vorhandenen Fahrer
+            </div>
+            
+            <div id="get-task">
+                Fahrer ruft den nächsten Auftrag ab
+            </div>
+            
+            <div id="finish-task">
+                Fahrer markiert einen Auftrag als erledigt
+            </div>
+        </div>        
+    </div>
+    
+    <script src="src/js/DataManagement.js"></script>
+    <script src="src/js/MainController.js"></script>
+    <script src="src/js/ControlsView.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            DataManagement.init();
+        });
+        
+    </script>
+    
+</body>
+    
+</html>
