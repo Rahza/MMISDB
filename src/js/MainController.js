@@ -21,8 +21,7 @@ DataManagement.MainController = (function() {
         _initEvents = function() {
             var $body = $('body');
             $body.on('insertIntoDB', _onInsertIntoDB);
-            //$body.on('fetchingFinished', _onFetchingFinished);
-            //$body.on('loadComplete', _onLoadComplete);
+            $body.on('requestLocations', _onRequestLocations);
         },
         
         _onInsertIntoDB = function(event, data) {
@@ -30,6 +29,10 @@ DataManagement.MainController = (function() {
                 case "driver":
                     dbController.insertDriver(data.values);
             }
+        },
+        
+        _onRequestLocations = function(event) {
+            dbController.getLocations();   
         };
     
     that.init = init;

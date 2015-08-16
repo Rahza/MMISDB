@@ -49,17 +49,11 @@ DataManagement.ControlsView = (function() {
                     $tasks_driver.show();
                     break;
             }
-            
-            /*
-            var char = $char.val();
-            $controls.trigger('requestData', {
-                char: char,
-                realm: realm
-            });
-            */
         },
         
         _onSelectTask = function(event) {
+            $tasks.trigger('requestLocations');
+            
             $tasks.children("div").hide();
             $task_select.find(".select").removeClass("selected");
             $("#" + event.target.id).addClass("selected");
@@ -68,8 +62,13 @@ DataManagement.ControlsView = (function() {
             var target = event.target.id.split('-')[3] + "-" + event.target.id.split('-')[4];
             var $task = $("#" + target);
             $task.show();
+        },
+        
+        setLocations = function(data) {
+            
         };
     
+    that.setLocations = setLocations;
     that.init = init;
     
     return that;

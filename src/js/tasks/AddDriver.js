@@ -2,7 +2,7 @@ DataManagement.AddDriver = (function() {
     var that = {},
         $first_name,
         $last_name,
-        $address,
+        $location,
         $submit,
         TYPE = "driver",
         
@@ -16,6 +16,7 @@ DataManagement.AddDriver = (function() {
         _initUI = function() {
             $first_name = $('#first-name');
             $last_name = $('#last-name');
+            $location = $('#location');
             $submit = $('#submit');
         },
         
@@ -26,12 +27,14 @@ DataManagement.AddDriver = (function() {
         _submitForm = function(event) { 
             var first_name = $first_name.val();
             var last_name = $last_name.val();
+            var location = $location.val();
             
             $submit.trigger('insertIntoDB', {
                 type: TYPE,
                 values: {
                     first_name: first_name,
-                    last_name: last_name
+                    last_name: last_name,
+                    location: location
                 }
             });
         };

@@ -4,13 +4,15 @@
     $firstname = $_GET['firstname'];
     $lastname = $_GET['lastname'];
 
-    mysqli_select_db($con, "kurier");
+    mysqli_select_db($con, $dbname);
 
-    $sql = "INSERT INTO fahrer (vorname, nachname) VALUES (" + $firstname + ", " + $lastname + ");";
+    $sql = "INSERT INTO fahrer (vorname, nachname) VALUES ('" . $firstname . "', '" . $lastname . "');";
 
-    $result = mysqli_query($con, $sql);
-
-    echo "success";
+    if (mysqli_query($con, $sql)) {
+        echo "success";
+    } else {
+        echo "error: " . mysqli_error($con);
+    }
 
     mysqli_close($con);
 ?>
